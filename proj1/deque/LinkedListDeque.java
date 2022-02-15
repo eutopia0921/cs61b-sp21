@@ -4,11 +4,11 @@ import java.util.Iterator;
 
 public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
     private class LinkedListNode {
-        public LinkedListNode prev;
-        public T item;
-        public LinkedListNode next;
+        private LinkedListNode prev;
+        private T item;
+        private LinkedListNode next;
 
-        public LinkedListNode(LinkedListNode prev, T item, LinkedListNode next) {
+        LinkedListNode(LinkedListNode prev, T item, LinkedListNode next) {
             this.prev = prev;
             this.item = item;
             this.next = next;
@@ -25,12 +25,12 @@ public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
         size = 0;
     }
 
-    public LinkedListDeque(T item) {
+    /*public LinkedListDeque(T item) {
         sentinel = new LinkedListNode(null, null, null);
         sentinel.next = new LinkedListNode(sentinel, item, sentinel);
         sentinel.prev = sentinel.next;
         size = 1;
-    }
+    }*/
 
     public void addFirst(T item) {
         sentinel.next = new LinkedListNode(sentinel, item, sentinel.next);
@@ -124,7 +124,7 @@ public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
     private class LinkedListDequeIterator implements Iterator<T> {
         private int index;
 
-        public LinkedListDequeIterator() {
+        LinkedListDequeIterator() {
             index = 0;
         }
 
@@ -149,10 +149,10 @@ public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof LinkedListDeque)) {
+        if (!(o instanceof Deque)) {
             return false;
         }
-        LinkedListDeque<T> other = (LinkedListDeque<T>) o;
+        Deque<T> other = (Deque<T>) o;
         if (this.size() != other.size()) {
             return false;
         }

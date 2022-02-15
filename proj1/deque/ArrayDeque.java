@@ -15,11 +15,7 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
         nextLast = 1;
     }
 
-    public ArrayDeque(int cap) {
-        this();
-        items = (T[]) new Object[cap];
 
-    }
 
 
     private boolean isFull() {
@@ -168,10 +164,10 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof ArrayDeque)) {
+        if (!(o instanceof Deque)) {
             return false;
         }
-        ArrayDeque<T> other = (ArrayDeque<T>) o;
+        Deque<T> other = (Deque<T>) o;
         if (this.size() != other.size()) {
             return false;
         }
@@ -184,9 +180,4 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
         return true;
     }
 
-    public static void main(String[] args) {
-        ArrayDeque<Integer> d = new ArrayDeque<>();
-        d.addLast(2);
-
-    }
 }
