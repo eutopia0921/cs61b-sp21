@@ -25,12 +25,7 @@ public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
         size = 0;
     }
 
-    /*public LinkedListDeque(T item) {
-        sentinel = new LinkedListNode(null, null, null);
-        sentinel.next = new LinkedListNode(sentinel, item, sentinel);
-        sentinel.prev = sentinel.next;
-        size = 1;
-    }*/
+
 
     public void addFirst(T item) {
         sentinel.next = new LinkedListNode(sentinel, item, sentinel.next);
@@ -44,9 +39,7 @@ public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
         size += 1;
     }
 
-    public boolean isEmpty() {
-        return size == 0;
-    }
+
 
     public int size() {
         return size;
@@ -157,7 +150,7 @@ public class LinkedListDeque<T> implements Iterable<T>, Deque<T> {
             return false;
         }
         for (int i = 0; i < size; i++) {
-            if (this.get(i) != other.get(i)) {
+            if (!(this.get(i).equals(other.get(i)))) {
                 return false;
             }
         }

@@ -34,15 +34,15 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
         return (index - 1 + items.length) % items.length;
     }
 
-    private void resize(int captial) {
-        T[] a = (T[]) new Object[captial];
+    private void resize(int cp) {
+        T[] a = (T[]) new Object[cp];
         int last = plusOne(nextFirst);
         for (int i = 0; i < size; i++) {
             a[i] = items[last];
             last = plusOne(last);
         }
         items = a;
-        nextFirst = captial - 1;
+        nextFirst = cp - 1;
         nextLast = size;
 
     }
@@ -74,9 +74,7 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
     }
 
 
-    public boolean isEmpty() {
-        return size == 0;
-    }
+
 
     public int size() {
         return size;
@@ -139,7 +137,7 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
 
         private int index;
 
-        public ArrayDequeIterator() {
+        ArrayDequeIterator() {
             index = 0;
         }
 
