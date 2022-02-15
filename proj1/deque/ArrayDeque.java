@@ -23,7 +23,7 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T> {
     }
 
     private boolean isShrink() {
-        return size >= 16 && size < (items.length / 4);
+        return size >= 16 && size == (items.length / 4);
     }
 
     private int plusOne(int index) {
